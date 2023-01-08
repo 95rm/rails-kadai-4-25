@@ -1,9 +1,31 @@
+<h1>User info</h1>
+
+
 <h1>New book</h1>
  <%= form_with model: @book do |f| %>
    <h4>Title</h4>
     <%= f.text_field :title %>
    <h4>Opinion</h4>
     <%= f.text_area :body %>
-   <%= f.submit 'create book' %>
+    <%= f.submit 'create book' %>
  <% end %>
+
+ <table>
+  <thesd>
+   <tr>
+    <th>Title</th>
+    <th>Opinion<th>
+   </tr>
+  </thead>
+  <% @books.each do |book| %>
+  <tbody>
+   <tr>
+    <th><%= book.title %></th>
+    <th><%= book.body %></th>
+    <th><%= link_to "Edit", edit_book_path(book.id) %></th>
+    <th><%= link_to "Destroy", books_path(book.id) %></th>
+   </tr>
+  </tbody>
+  <% end %>
+ </table>
 
