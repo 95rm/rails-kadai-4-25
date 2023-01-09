@@ -1,5 +1,26 @@
+<h1>User info</h1>
+<%= form_with model: @user do |f| %>
+ <%= image_tag @user.get_profile_image(100,100) %>
+<% end %>
+<table>
+ <thead>
+  <tr>
+   <th>name</th>
+   <th><%= @user.name %></th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <th>introducion</th>
+   <th><%= @user.introduction %></th>
+  </tr>
+ </tbody>
+</table>
+ <%= link_to "編集", edit_user_path(user.id) %>
+
+
 <h1>New book</h1>
- <%= form_with model: @book do |f| %>
+ <%= form_with model: @newbook do |f| %>
    <h4>Title</h4>
     <%= f.text_field :title %>
    <h4>Opinion</h4>
@@ -8,8 +29,24 @@
  <% end %>
 
 <h1>Books</h1>
-<div>
-  <%= image_tag @user.get_profile_image(100,100) %>
-  <p>Title: <%= @book.title %></p>
-  <p>Opinion: <%= @book.body %></p>
-</div>
+
+<table>
+ <thead>
+  <tr>
+   <th> </th>
+   <th>Title</th>
+   <th>Opinion</th>
+  </tr>
+ </thead>
+ <% @book.each do |book| %>
+ <tbody>
+  <tr>
+   <th><%= image_tag book.user.get_profile_image(100,100) %></th>
+   <span>
+    <th><%= link_to book.title, book_path(book.id) %></th>
+   </span>
+   <th><%= book.body %></th>
+  </tr>
+ </tbody>
+</table>
+<% end %>

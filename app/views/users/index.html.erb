@@ -8,10 +8,20 @@
  <% end %>
 
 <h2>Users</h2>
-<% @user.each do |user| %>
- <div>
-   <%= image_tag user.get_profile_image(100,100) %>
-   <h3><%= user.name %></h3>
-   <p><%= link_to "profile編集", edit_user_path(user.id) %></p>
- </div>
-<% end %>
+<table>
+ <thead>
+  <tr>
+   <th>image</th>
+   <th>name</th>
+  </tr>
+ </thead>
+ <% @user.each do |user| %>
+ </tbody>
+  <tr>
+    <th><%= image_tag user.get_profile_image(100,100) %></th>
+    <th><h3><%= user.name %></h3></th>
+    <th><p><%= link_to "show", user_path(user.id) %></p></th>
+  </tr>
+ </tbody>
+ <% end %>
+</table>

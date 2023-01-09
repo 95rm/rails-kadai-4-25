@@ -8,9 +8,22 @@
  <% end %>
 
 <% @books.each do |book| %>
-<div>
-  <a href = "/books/id"><%= book.title %></a>
-  <%= book.body %>
-  <%= book.user.name %>
+<table>
+ <thead>
+  <tr>
+   <th>Title</th>
+   <th>Opinion</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <span>
+    <th><%= link_to book.title, book_path(book.id) %></th>
+   </span>
+   <th><%= book.body %></th>
+   <th><%= book.user.name %></th>
+  </tr>
+ <tbody>
+</table>
 <% end %>
-</div>
+
