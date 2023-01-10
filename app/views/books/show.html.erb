@@ -17,8 +17,10 @@
    </span>
    <th><%= @book.title %></th>
    <th><%= @book.body %></th>
-   <th><%= link_to "Edit", edit_book_path(@book.id) %></th>
-   <th><%= link_to "destroy", book_path(@book.id), method: :delete %></th>
+   <% if @user = current_user.id %>
+    <th><%= link_to "Edit", edit_book_path(@book.id) %></th>
+    <th><%= link_to "destroy", book_path(@book.id), method: :delete %></th>
+   <% end %>
   </tr>
  </tbody>
 </table>
