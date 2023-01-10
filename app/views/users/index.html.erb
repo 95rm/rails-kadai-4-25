@@ -1,3 +1,23 @@
+<h1>User info</h1>
+<%= form_with model: @indexuser do |f| %>
+ <%= image_tag @indexuser.get_profile_image(100,100) %>
+<% end %>
+<table>
+ <thead>
+  <tr>
+   <th>name</th>
+   <th><%= @indexuser.name %></th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <th>introducion</th>
+   <th><%= @indexuser.introduction %></th>
+  </tr>
+ </tbody>
+ <%= link_to "編集", edit_user_path(@indexuser.id) %>
+</table>
+
 <h1>New book</h1>
  <%= form_with model: @book do |f| %>
    <h4>Title</h4>
