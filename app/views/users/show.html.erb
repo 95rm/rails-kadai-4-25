@@ -1,3 +1,11 @@
+<div>
+ <%= flash[:notice] %>
+</div>
+
+<div>
+ <%= flash[:notis] %>
+</div>
+
 <h1>User info</h1>
 <%= form_with model: @user do |f| %>
  <%= image_tag @user.get_profile_image(100,100) %>
@@ -41,7 +49,7 @@
  <% @book.each do |book| %>
  <tbody>
   <tr>
-   <th><%= image_tag book.user.get_profile_image(100,100) %></th>
+   <th><%= link_to image_tag book.user.get_profile_image(100,100) %></th>
    <span>
     <th><%= link_to book.title, book_path(book.id) %></th>
    </span>

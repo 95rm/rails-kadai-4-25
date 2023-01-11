@@ -1,7 +1,5 @@
 <h1>User info</h1>
-<%= form_with model: @indexuser do |f| %>
  <%= image_tag @indexuser.get_profile_image(100,100) %>
-<% end %>
 <table>
  <thead>
   <tr>
@@ -36,7 +34,7 @@
   </tr>
  </thead>
  <% @user.each do |user| %>
- </tbody>
+ <tbody>
   <tr>
     <th><%= image_tag user.get_profile_image(100,100) %></th>
     <th><h3><%= user.name %></h3></th>

@@ -1,3 +1,7 @@
+<div>
+ <%= flash[:notice] %>
+</div>
+
 <h1>User info</h1>
 <%= form_with model: @showuser do |f| %>
  <%= image_tag @showuser.get_profile_image(100,100) %>
@@ -38,7 +42,7 @@
    </span>
    <th><%= @book.title %></th>
    <th><%= @book.body %></th>
-   <% if @user = current_user.id %>
+   <% if @book.user == current_user %>
     <th><%= link_to "Edit", edit_book_path(@book.id) %></th>
     <th><%= link_to "destroy", book_path(@book.id), method: :delete %></th>
    <% end %>
