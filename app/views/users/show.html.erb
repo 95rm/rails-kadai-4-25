@@ -46,8 +46,8 @@
    <th>Opinion</th>
   </tr>
  </thead>
- <% @book.each do |book| %>
  <tbody>
+  <% @book.each do |book| %>
   <tr>
    <th><%= link_to image_tag book.user.get_profile_image(100,100) %></th>
    <span>
@@ -55,6 +55,6 @@
    </span>
    <th><%= book.body %></th>
   </tr>
+  <% end %>
  </tbody>
 </table>
-<% end %>
