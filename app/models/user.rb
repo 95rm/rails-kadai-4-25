@@ -11,7 +11,9 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :encrypted_password, presence: true
   validates :name,
-   length: { minimum: 2}
+   length: { minimum: 2, maximum: 20 }
+  validates :introduction,
+   length: { maximum: 50 }
 
 
   def get_profile_image(width, height)

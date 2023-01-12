@@ -7,6 +7,9 @@
  </ul>
 <% end %>
 
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-3">
 <h1>User info</h1>
 <%= form_with model:@user do |f| %>
  <p>Name</p>
@@ -15,6 +18,23 @@
   <%= f.file_field :profile_image %>
  <p>Introduction</p>
   <%= f.text_field :introduction %>
- <%= f.submit "create book" %>
+ <p></p>
+ <%= f.submit "update book", class: "btn btn-secondary" %>
 <% end %>
+</div>
+</div>
+</div>
+
+<footre>
+ <div class="container">
+  <div class="row justify-content-center">
+   <div class="md-12">
+    <p></p>
+    <p></p>
+    <p></p>
+    <p>CopyRight Infratop.inc</p>
+   </div>
+  </div>
+ </div>
+</footre>
 

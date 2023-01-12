@@ -7,7 +7,10 @@
  </ul>
 <% end %>
 
+<div class="container">
+<div class="row">
 
+<div class="col-lg-3">
 <h1>User info</h1>
 <%= form_with model: @user do |f| %>
  <%= image_tag @user.get_profile_image(100,100) %>
@@ -25,8 +28,8 @@
    <th><%= @user.introduction %></th>
   </tr>
  </tbody>
- <%= link_to "編集", edit_user_path(@user.id) %>
 </table>
+ <%= link_to "編集", edit_user_path(@user.id) %>
 
 <h1>New book</h1>
  <%= form_with model: @book do |f| %>
@@ -34,11 +37,13 @@
     <%= f.text_field :title %>
    <h4>Opinion</h4>
     <%= f.text_area :body %>
-   <%= f.submit 'create book' %>
+   <%= f.submit 'create book', class: "btn btn-success"  %>
  <% end %>
+ </div>
 
+<div class="col-lg-8">
 <h1>Books</h1>
-<table>
+<table class="table table-striped">
  <thead>
   <tr>
    <th></th>
@@ -63,4 +68,16 @@
   <% end %>
  <tbody>
 </table>
+</div>
+</div>
+</div>
 
+<footre>
+ <div class="container">
+  <div class="row justify-content-center">
+   <div class="md-12">
+    <p>CopyRight Infratop.inc</p>
+   </div>
+  </div>
+ </div>
+</footre>

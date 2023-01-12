@@ -2,6 +2,10 @@
  <%= flash[:notice] %>
 </div>
 
+<div class="container">
+<div class="row">
+
+<div class="col-lg-3">
 <h1>User info</h1>
 <%= form_with model: @showuser do |f| %>
  <%= image_tag @showuser.get_profile_image(100,100) %>
@@ -19,8 +23,8 @@
    <th><%= @showuser.introduction %></th>
   </tr>
  </tbody>
- <%= link_to "編集", edit_user_path(@showuser.id) %>
 </table>
+<%= link_to "編集", edit_user_path(@showuser.id) %>
 
 <h1>New book</h1>
  <%= form_with model: @new_book do |f| %>
@@ -28,24 +32,38 @@
     <%= f.text_field :title %>
    <h4>Opinion</h4>
     <%= f.text_area :body %>
-   <%= f.submit 'create book' %>
+   <%= f.submit 'create book', class: "btn btn-success"  %>
  <% end %>
+ </div>
 
-
+<div class="col-lg-8">
 <h1>Book detail</h1>
-<table>
+<table class="col-lg-8">
  <tbody>
   <tr>
-   <th><%= image_tag @user.get_profile_image(100,100) %></th>
-   <span>
-    <th><%= link_to @book.user.name, user_path(@user.id) %></th>
-   </span>
+   <th>
+     <%= image_tag @user.get_profile_image(100,100) %>
+   </th>
    <th><%= @book.title %></th>
    <th><%= @book.body %></th>
    <% if @book.user == current_user %>
-    <th><%= link_to "Edit", edit_book_path(@book.id) %></th>
-    <th><%= link_to "destroy", book_path(@book.id), method: :delete %></th>
+    <th><%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-success" %></th>
+    <th><%= link_to "destroy", book_path(@book.id), method: :delete, class: "btn btn-danger" %></th>
    <% end %>
   </tr>
  </tbody>
 </table>
+<span><%= link_to @book.user.name, user_path(@user.id) %></span>
+</div>
+</div>
+</div>
+
+<footre>
+ <div class="container">
+  <div class="row justify-content-center">
+   <div class="md-12">
+    <p>CopyRight Infratop.inc</p>
+   </div>
+  </div>
+ </div>
+</footre>
