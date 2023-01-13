@@ -7,24 +7,28 @@
 
 <div class="col-lg-3">
 <h1>User info</h1>
-<%= form_with model: @showuser do |f| %>
- <%= image_tag @showuser.get_profile_image(100,100) %>
+<%= form_with model: @book do |f| %>
+ <%= image_tag @book.user.get_profile_image(100,100) %>
 <% end %>
 <table>
  <thead>
   <tr>
    <th>name</th>
-   <th><%= @showuser.name %></th>
+   <th><%= @book.user.name %></th>
   </tr>
  </thead>
  <tbody>
   <tr>
    <th>introducion</th>
-   <th><%= @showuser.introduction %></th>
+   <th><%= @book.user.introduction %></th>
   </tr>
  </tbody>
 </table>
-<%= link_to "編集", edit_user_path(@showuser.id) %>
+<% if @book.user.id == current_user.id %>
+ <%= link_to "編集", edit_user_path(@book.user.id) %>
+<% else %>
+ <%= link_to "編集", user_path(current_user.id) %>
+<% end %>
 
 <h1>New book</h1>
  <%= form_with model: @new_book do |f| %>
@@ -57,13 +61,3 @@
 </div>
 </div>
 </div>
-
-<footre>
- <div class="container">
-  <div class="row justify-content-center">
-   <div class="md-12">
-    <p>CopyRight Infratop.inc</p>
-   </div>
-  </div>
- </div>
-</footre>

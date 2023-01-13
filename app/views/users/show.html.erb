@@ -29,7 +29,11 @@
   </tr>
  </tbody>
 </table>
-<%= link_to "編集", user_path(@user.id) %>
+<% if user_signed_in? %>
+ <%= link_to "編集", edit_user_path(current_user.id) %>
+<% else %>
+ <%= link_to "編集", user_path(current_user.id) %>
+<% end %>
 
 <h1>New book</h1>
  <%= form_with model: @newbook do |f| %>
@@ -69,13 +73,3 @@
 </div>
 </div>
 </div>
-
-<footre>
- <div class="container">
-  <div class="row justify-content-center">
-   <div class="md-12">
-    <p>CopyRight Infratop.inc</p>
-   </div>
-  </div>
- </div>
-</footre>
